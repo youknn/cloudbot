@@ -1,0 +1,13 @@
+services:
+  - type: web               # Web Service — доступен на Free плане
+    name: tg-forwarder-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false         # вводится вручную в Dashboard, не хранится в git
+      - key: OWNER_ID
+        sync: false
+
